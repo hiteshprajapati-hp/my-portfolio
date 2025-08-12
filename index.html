@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hitesh Portfolio</title>
+<style>
+    body {margin:0;font-family:'Poppins',sans-serif;background:#f4f4f4;}
+    header {background:#222;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
+    header h1 {margin:0;font-size:22px;}
+    nav a {color:#fff;text-decoration:none;margin:0 10px;font-weight:500;}
+    nav a:hover {color:#ff9800;transition:0.3s;}
+    .hero {text-align:center;padding:60px 20px;background:linear-gradient(135deg,#ff9800,#ff5722);color:white;}
+    .hero h2 {font-size:32px;margin-bottom:10px;}
+    .hero p {max-width:500px;margin:auto;}
+    .btn {background:white;color:#ff5722;padding:10px 20px;border-radius:5px;text-decoration:none;display:inline-block;margin-top:15px;}
+    .btn:hover {background:#222;color:white;transition:0.3s;}
+    section {padding:40px 20px;text-align:center;}
+    h2 {margin-bottom:20px;}
+    .service-container,.portfolio-container {display:flex;flex-wrap:wrap;gap:20px;justify-content:center;}
+    .service {background:white;padding:20px;width:250px;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform 0.3s;}
+    .service:hover {transform:translateY(-5px);}
+    .portfolio-container img {width:250px;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform 0.3s;}
+    .portfolio-container img:hover {transform:scale(1.05);}
+    form {display:flex;flex-direction:column;max-width:400px;margin:auto;}
+    form input,form textarea {margin:10px 0;padding:10px;border:1px solid #ccc;border-radius:5px;}
+    form button {background:#ff5722;color:white;border:none;padding:10px;font-size:16px;border-radius:5px;cursor:pointer;}
+    form button:hover {background:#222;transition:0.3s;}
+    footer {background:#222;color:white;text-align:center;padding:15px;}
+    @media(max-width:600px){
+        .service,.portfolio-container img{width:100%;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Hitesh Designs</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h2>Creative Designer & Front-End Developer</h2>
+    <p>I design modern visiting cards, responsive UIs, and professional branding solutions to make your business stand out.</p>
+    <a href="#contact" class="btn">Hire Me</a>
+</section>
+
+<section id="services">
+    <h2>My Services</h2>
+    <div class="service-container">
+        <div class="service">
+            <h3>Visiting Card Design</h3>
+            <p>Custom creative visiting card designs to represent your brand professionally.</p>
+        </div>
+        <div class="service">
+            <h3>Website UI</h3>
+            <p>Clean, responsive, and interactive front-end designs with HTML, CSS, JS.</p>
+        </div>
+        <div class="service">
+            <h3>Graphic Design</h3>
+            <p>Logos, banners, and social media posts to boost your online presence.</p>
+        </div>
+    </div>
+</section>
+
+<section id="portfolio">
+    <h2>My Work</h2>
+    <div class="portfolio-container">
+        <img src="work1.jpg" alt="Project 1">
+        <img src="work2.jpg" alt="Project 2">
+        <img src="work3.jpg" alt="Project 3">
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mjkolokn" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p>Or WhatsApp me: <a href="https://wa.me/919313883469" target="_blank">Click Here</a></p>
+</section>
+
+<footer>
+    <p>© 2025 Hitesh Designs. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
