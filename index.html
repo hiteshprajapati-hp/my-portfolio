@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hitesh Portfolio</title>
+<title>HP DESIGNS</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
     body {margin:0;font-family:'Poppins',sans-serif;background:#f4f4f4;}
     header {background:#222;color:#fff;padding:15px 20px;display:flex;justify-content:space-between;align-items:center;}
@@ -23,10 +25,14 @@
     .portfolio-container img {width:250px;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);transition:transform 0.3s;}
     .portfolio-container img:hover {transform:scale(1.05);}
     form {display:flex;flex-direction:column;max-width:400px;margin:auto;}
-    form input,form textarea {margin:10px 0;padding:10px;border:1px solid #ccc;border-radius:5px;}
+    form input,form textarea,form select {margin:10px 0;padding:10px;border:1px solid #ccc;border-radius:5px;}
     form button {background:#ff5722;color:white;border:none;padding:10px;font-size:16px;border-radius:5px;cursor:pointer;}
     form button:hover {background:#222;transition:0.3s;}
     footer {background:#222;color:white;text-align:center;padding:15px;}
+    .social-icons a {margin:0 8px;font-size:20px;transition:transform 0.3s;}
+    .social-icons a:hover {transform:scale(1.2);}
+    .business-info {margin-top:40px;text-align:center;}
+    .business-info p {margin:5px 0;}
     @media(max-width:600px){
         .service,.portfolio-container img{width:100%;}
     }
@@ -35,7 +41,7 @@
 <body>
 
 <header>
-    <h1>Hitesh Designs</h1>
+    <h1>HP Designs</h1>
     <nav>
         <a href="#home">Home</a>
         <a href="#services">Services</a>
@@ -77,30 +83,68 @@
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contact Me</h2>
+<section id="contact" style="background:#f9fafb;padding:60px 20px;">
+    <h2 style="text-align:center;margin-bottom:30px;font-size:28px;color:#222;">Contact Me</h2>
+    
     <form action="https://formspree.io/f/mjkolokn" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" 
-               name="mobile" 
-               placeholder="Your Mobile Number" 
-               pattern="[6-9][0-9]{9}" 
-               maxlength="10" 
-               required 
-               title="Enter a valid 10-digit Indian mobile number starting with 6-9">
         <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message" required></textarea>
+        <input type="tel" name="mobile" placeholder="Your Mobile Number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+        <input type="text" name="company" placeholder="Company / Organization (Optional)">
+        <textarea name="address" placeholder="Your Address" rows="2"></textarea>
+        
+        <select name="service" id="serviceSelect" required>
+            <option value="">-- Select What You Need --</option>
+            <option value="visiting-card">Visiting Card Design</option>
+            <option value="website-ui">Website UI Design</option>
+            <option value="graphic-design">Graphic Design (Logo, Banner, etc.)</option>
+            <option value="other">Other Custom Work</option>
+        </select>
+        
+        <input type="text" id="customWork" name="customWork" placeholder="Please specify your work" style="display:none;">
+        
+        <textarea name="message" placeholder="Description of what you need" required rows="4"></textarea>
+        
         <button type="submit">Send Message</button>
     </form>
-    <p>Or WhatsApp me: <a href="https://wa.me/919313883469" target="_blank">Click Here</a></p>
+    
+    <p style="text-align:center;margin-top:20px;font-size:14px;">
+        Or WhatsApp me: <a href="https://wa.me/919313883469" target="_blank" style="color:#ff5722;text-decoration:none;">Click Here</a>
+    </p>
 </section>
 
+<div class="business-info">
+    <h3>Contact Information</h3>
+    <p><strong>Address:</strong> 21 Shukan Residency, Siddhpur, Gujarat, India</p>
+    <p><strong>Email:</strong> hpdesigning1@gmail.com</p>
+    <p><strong>Phone:</strong> +91 9313883469</p>
+
+    <h3>Follow Me</h3>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61579348381782&mibextid=ZbWKwL" target="_blank" style="color:#3b5998;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/hp_designing1/profilecard/?igsh=MTRhNHRmNWozY2QyeQ==" target="_blank" style="color:#e4405f;"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/hp_designing?t=5e4WuxlJxwltoz1WJMAuDg&s=09" target="_blank" style="color:#1da1f2;"><i class="fab fa-twitter"></i></a>
+    </div>
+</div>
+
 <footer>
-    <p>© 2025 Hitesh Designs. All rights reserved.</p>
+    <p>© 2025 HP Designs. All rights reserved.</p>
 </footer>
+
+<script>
+    const serviceSelect = document.getElementById('serviceSelect');
+    const customWork = document.getElementById('customWork');
+    
+    serviceSelect.addEventListener('change', function() {
+        if (this.value === 'other') {
+            customWork.style.display = 'block';
+            customWork.required = true;
+        } else {
+            customWork.style.display = 'none';
+            customWork.required = false;
+        }
+    });
+</script>
 
 </body>
 </html>
-
-
-
