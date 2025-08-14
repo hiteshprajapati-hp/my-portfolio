@@ -71,9 +71,9 @@
 <section id="portfolio">
     <h2>My Work</h2>
     <div class="portfolio-container">
-        <img src="img.png" alt="Project 1">
-        <img src="img.png" alt="Project 2">
-        <img src="work3.jpg" alt="Project 3">
+        <img src="visit.jpg" alt="Project 1">
+        <img src="web.png" alt="Project 2">
+        <img src="img.png" alt="Project 3">
     </div>
 </section>
 
@@ -81,6 +81,13 @@
     <h2>Contact Me</h2>
     <form action="https://formspree.io/f/mjkolokn" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" 
+               name="mobile" 
+               placeholder="Your Mobile Number" 
+               pattern="[6-9][0-9]{9}" 
+               maxlength="10" 
+               required 
+               title="Enter a valid 10-digit Indian mobile number starting with 6-9">
         <input type="email" name="email" placeholder="Your Email" required>
         <textarea name="message" placeholder="Your Message" required></textarea>
         <button type="submit">Send Message</button>
@@ -94,5 +101,6 @@
 
 </body>
 </html>
+
 
 
