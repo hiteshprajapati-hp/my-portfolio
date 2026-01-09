@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HP Designs – Payment</title>
+
+<style>
+    body{
+        margin:0;
+        font-family:'Poppins',sans-serif;
+        background:#f4f4f4;
+    }
+
+    header{
+        background:#222;
+        color:white;
+        padding:15px 20px;
+        text-align:center;
+        font-size:22px;
+        font-weight:600;
+    }
+
+    .hero{
+        background:linear-gradient(135deg,#ff9800,#ff5722);
+        color:white;
+        padding:50px 20px;
+        text-align:center;
+    }
+
+    .hero h2{
+        margin:0;
+        font-size:32px;
+    }
+
+    .hero p{
+        margin-top:10px;
+        opacity:0.95;
+    }
+
+    .payment-box{
+        max-width:420px;
+        background:white;
+        margin:-40px auto 40px;
+        padding:25px;
+        border-radius:12px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    label{
+        font-size:14px;
+        font-weight:500;
+        display:block;
+        margin:15px 0 6px;
+    }
+
+    input{
+        width:100%;
+        padding:12px;
+        border-radius:6px;
+        border:1px solid #ccc;
+        font-size:15px;
+    }
+
+    .quick-amounts{
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin-top:10px;
+    }
+
+    .amount-btn{
+        padding:8px 14px;
+        border-radius:20px;
+        border:1px solid #ff5722;
+        color:#ff5722;
+        cursor:pointer;
+        font-size:14px;
+        transition:0.3s;
+    }
+
+    .amount-btn:hover{
+        background:#ff5722;
+        color:white;
+    }
+
+    .pay-btn{
+        width:100%;
+        margin-top:20px;
+        background:#ff5722;
+        color:white;
+        border:none;
+        padding:12px;
+        font-size:16px;
+        border-radius:6px;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .pay-btn:hover{
+        background:#222;
+    }
+
+    .qr-box{
+        text-align:center;
+        margin-top:25px;
+        display:none;
+    }
+
+    .qr-box img{
+        width:220px;
+        border-radius:10px;
+        box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .upi-id{
+        margin-top:10px;
+        font-size:14px;
+        color:#555;
+    }
+
+    footer{
+        background:#222;
+        color:white;
+        text-align:center;
+        padding:12px;
+        font-size:14px;
+    }
+</style>
+</head>
+
+<body>
+
+<header>HP Designs</header>
+
+<section class="hero">
+    <h2>Secure Payment</h2>
+    <p>Pay easily via UPI & confirm your order</p>
+</section>
+
+<div class="payment-box">
+    <label>Amount (INR)</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+
+    <div class="quick-amounts">
+        <div class="amount-btn" onclick="setAmount(99)">₹99</div>
+        <div class="amount-btn" onclick="setAmount(199)">₹199</div>
+        <div class="amount-btn" onclick="setAmount(499)">₹499</div>
+        <div class="amount-btn" onclick="setAmount(999)">₹999</div>
+    </div>
+
+    <label>Note (Optional)</label>
+    <input type="text" id="note" placeholder="Design payment">
+
+    <button class="pay-btn" onclick="generateQR()">Generate QR</button>
+
+    <div class="qr-box" id="qrBox">
+        <img id="qrImg">
+        <div class="upi-id">UPI ID: <b>9313883469@ybl</b></div>
+    </div>
+</div>
+
+<footer>
+    © 2025 HP Designs. All rights reserved.
+</footer>
+
+<script>
+    const UPI_ID = "9313883469@ybl";
+    const PAYEE_NAME = "HP Designs";
+
+    function setAmount(val){
+        document.getElementById("amount").value = val;
+    }
+
+    function generateQR(){
+        const amt = document.getElementById("amount").value;
+        const note = document.getElementById("note").value || "HP Design Payment";
+
+        if(!amt || amt <= 0){
+            alert("Please enter a valid amount");
+            return;
+        }
+
+        const upiLink = `upi://pay?pa=${UPI_ID}&pn=${PAYEE_NAME}&am=${amt}&cu=INR&tn=${note}`;
+        const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(upiLink);
+
+        document.getElementById("qrImg").src = qrUrl;
+        document.getElementById("qrBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
