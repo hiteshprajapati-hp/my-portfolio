@@ -36,6 +36,36 @@
     @media(max-width:600px){
         .service,.portfolio-container img{width:100%;}
     }
+	.pay-float{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+    background:linear-gradient(135deg,#ff9800,#ff5722);
+    color:white;
+    padding:14px 22px;
+    border-radius:50px;
+    font-size:16px;
+    font-weight:600;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(255,87,34,0.6);
+    z-index:999;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    animation:pulse 2s infinite;
+}
+
+.pay-float:hover{
+    background:#222;
+    transform:translateY(-3px);
+    transition:0.3s;
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(255,87,34,0.6);}
+    70%{box-shadow:0 0 0 15px rgba(255,87,34,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,87,34,0);}
+}
 </style>
 </head>
 <body>
@@ -145,6 +175,10 @@
         }
     });
 </script>
-
+<!-- Payment Button -->
+<a href="pay2.html" class="pay-float">
+    <i class="fas fa-credit-card"></i> Pay Now
+</a>
 </body>
 </html>
+
